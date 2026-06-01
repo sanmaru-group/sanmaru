@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>お食事処 サンマール 門川｜あんかけ焼きそば・定食・お持ち帰り</title>
+  <meta name="description" content="お食事処 サンマール門川のホームページ。ちゃんぽん、あんかけ焼きそば、チキン南蛮定食など、しっかり食べたい日にうれしいメニューとお持ち帰りをご紹介します。" />
+
+  <style>
+    :root {
+      --main: #f15a25;
+      --main-dark: #c8431a;
+      --sub: #ffb13b;
+      --yellow: #fff2a8;
+      --cream: #fff8eb;
+      --paper: #ffffff;
+      --brown: #3d2617;
+      --text: #2c241d;
+      --muted: #6d5a4b;
+      --green: #27864a;
+      --red: #d71920;
+      --line: rgba(61, 38, 23, 0.14);
+      --shadow: 0 18px 44px rgba(88, 46, 16, 0.15);
+      --radius: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(241, 90, 37, 0.18);
+    }
+
+    .header-inner {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--brown);
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .logo-mark {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--main);
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 10px 22px rgba(241, 90, 37, 0.28);
+    }
+
+    .logo small {
+      display: block;
+      color: var(--main);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      line-height: 1.2;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: var(--brown);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .nav a {
+      padding: 8px 0;
+      border-bottom: 3px solid transparent;
+    }
+
+    .nav a:hover {
+      color: var(--main);
+      border-bottom-color: var(--main);
+    }
+
+    .nav .tel-link {
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: var(--main);
+      color: #fff;
+      border-bottom: none;
+      box-shadow: 0 10px 24px rgba(241, 90, 37, 0.24);
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at top left, rgba(255, 242, 168, 0.84), transparent 35rem),
+        linear-gradient(135deg, #fff8eb 0%, #ffffff 58%, #ffe8d7 100%);
+      padding: 58px 0 70px;
+    }
+
+    .hero-inner {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      align-items: center;
+      gap: 46px;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--main);
+      border: 2px solid rgba(241, 90, 37, 0.20);
+      font-size: 14px;
+      font-weight: 900;
+      box-shadow: 0 10px 24px rgba(241, 90, 37, 0.12);
+    }
+
+    .hero h1 {
+      color: var(--brown);
+      font-size: clamp(38px, 6vw, 76px);
+      line-height: 1.12;
+      letter-spacing: 0.02em;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--main);
+      background: linear-gradient(transparent 62%, var(--yellow) 62%);
+    }
+
+    .lead {
+      color: #5a3b28;
+      font-size: clamp(16px, 2vw, 20px);
+      font-weight: 700;
+      margin-bottom: 24px;
+      max-width: 620px;
+    }
+
+    .entry-note {
+      background: #fff;
+      border-left: 6px solid var(--green);
+      border-radius: 18px;
+      padding: 14px 18px;
+      color: var(--brown);
+      font-weight: 900;
+      box-shadow: 0 10px 24px rgba(44, 36, 29, 0.08);
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0 26px;
+      border-radius: 999px;
+      font-weight: 900;
+      letter-spacing: 0.03em;
+      transition: 0.22s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-main {
+      background: var(--main);
+      color: #fff;
+      box-shadow: 0 14px 28px rgba(241, 90, 37, 0.25);
+    }
+
+    .btn-sub {
+      background: #fff;
+      color: var(--main);
+      border: 2px solid var(--main);
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      list-style: none;
+      color: var(--brown);
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+    .hero-points li {
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(241, 90, 37, 0.14);
+      padding: 8px 12px;
+      border-radius: 999px;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-photo {
+      border-radius: 34px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: var(--shadow);
+      border: 7px solid #fff;
+      transform: rotate(1.4deg);
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 520px;
+      object-fit: contain;
+      background: #fff8eb;
+    }
+
+    .hero-chip {
+      position: absolute;
+      left: -20px;
+      bottom: 30px;
+      background: var(--red);
+      color: #fff;
+      padding: 16px 20px;
+      border-radius: 22px;
+      font-weight: 900;
+      line-height: 1.45;
+      border: 4px solid #fff;
+      box-shadow: 0 14px 30px rgba(215, 25, 32, 0.26);
+      transform: rotate(-4deg);
+    }
+
+    .section {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 72px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .section-title .en {
+      display: block;
+      color: var(--main);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      margin-bottom: 6px;
+    }
+
+    .section-title h2 {
+      color: var(--brown);
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.25;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .menu-card {
+      background: #fff;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 2px solid rgba(241, 90, 37, 0.10);
+      transition: 0.22s ease;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .menu-photo {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      background: #f2dfca;
+      overflow: hidden;
+    }
+
+    .menu-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .menu-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: var(--main);
+      color: #fff;
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 900;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.14);
+    }
+
+    .menu-card-body {
+      padding: 22px;
+    }
+
+    .menu-card-body h3 {
+      color: var(--brown);
+      font-size: 24px;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .menu-card-body p {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      color: var(--red);
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .price-note {
+      display: inline-block;
+      margin-left: 4px;
+      font-size: 17px;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .takeout-section {
+      background:
+        linear-gradient(135deg, rgba(255, 242, 168, 0.92), rgba(255, 255, 255, 0.96)),
+        radial-gradient(circle at bottom right, rgba(241, 90, 37, 0.18), transparent 28rem);
+      border-top: 1px solid rgba(241, 90, 37, 0.12);
+      border-bottom: 1px solid rgba(241, 90, 37, 0.12);
+    }
+
+    .takeout-wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 72px 0;
+    }
+
+    .takeout-head {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .takeout-message {
+      background: var(--main);
+      color: #fff;
+      padding: 32px;
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .takeout-message .en {
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      font-size: 13px;
+      color: var(--yellow);
+    }
+
+    .takeout-message h2 {
+      font-size: clamp(32px, 3.6vw, 44px);
+      line-height: 1.28;
+      margin: 8px 0 12px;
+    }
+
+    .takeout-message p {
+      font-weight: 800;
+      color: #fff7ef;
+    }
+
+    .nobr {
+      white-space: nowrap;
+    }
+
+    .takeout-menu-panel {
+      background: #fff;
+      border-radius: 26px;
+      padding: 22px 20px;
+      box-shadow: 0 12px 30px rgba(88, 46, 16, 0.10);
+      border: 2px dashed rgba(241, 90, 37, 0.34);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .takeout-menu-title {
+      color: var(--brown);
+      font-size: 23px;
+      margin-bottom: 14px;
+      line-height: 1.35;
+    }
+
+    .takeout-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .takeout-card {
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 22px rgba(88, 46, 16, 0.10);
+      border: 1px solid rgba(61, 38, 23, 0.10);
+    }
+
+    .takeout-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: #f2dfca;
+    }
+
+    .takeout-card-body {
+      padding: 16px;
+      text-align: center;
+      font-weight: 900;
+    }
+
+    .takeout-card-body span {
+      display: block;
+      color: var(--red);
+      font-size: 20px;
+      margin-top: 4px;
+    }
+
+    .takeout-menu-panel .takeout-card img {
+      aspect-ratio: 16 / 10;
+    }
+
+    .takeout-menu-panel .takeout-card-body {
+      padding: 10px 6px;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .takeout-menu-panel .takeout-card-body span {
+      font-size: 17px;
+    }
+
+    .first-guide {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+    }
+
+    .guide-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 26px;
+      border: 2px solid rgba(241, 90, 37, 0.12);
+      box-shadow: 0 12px 28px rgba(88, 46, 16, 0.09);
+    }
+
+    .guide-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--yellow);
+      color: var(--main-dark);
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .guide-card h3 {
+      color: var(--brown);
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    .guide-card p {
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .poster-wrap {
+      display: grid;
+      grid-template-columns: minmax(600px, 1fr) minmax(300px, 0.52fr);
+      gap: 28px;
+      align-items: start;
+      justify-content: center;
+    }
+
+    .poster-text,
+    .info-card,
+    .mascot-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(61, 38, 23, 0.10);
+    }
+
+    .poster-text {
+      width: 100%;
+      max-width: 640px;
+      justify-self: end;
+      min-height: 430px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .poster-text h3,
+    .info-card h3,
+    .mascot-card h3 {
+      color: var(--brown);
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+
+    .menu-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 22px;
+      list-style: none;
+    }
+
+    .menu-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      min-width: 0;
+      padding: 9px 0;
+      border-bottom: 1px dashed var(--line);
+      color: var(--brown);
+      font-size: 14px;
+      font-weight: 900;
+      line-height: 1.35;
+    }
+
+    .menu-list li span:first-child {
+      min-width: 0;
+    }
+
+    .menu-list li span:last-child {
+      color: var(--red);
+      white-space: nowrap;
+    }
+
+    .notice {
+      margin-top: 22px;
+      background: var(--green);
+      color: #fff;
+      border-radius: 999px;
+      padding: 13px 16px;
+      font-size: 14px;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .photo-panel {
+      background: #fff;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 7px solid #fff;
+      width: 100%;
+      max-width: 380px;
+      justify-self: start;
+    }
+
+    .photo-panel img {
+      width: 100%;
+      height: auto;
+    }
+
+
+    .stores-section {
+      background:
+        radial-gradient(circle at top right, rgba(241, 90, 37, 0.10), transparent 30rem),
+        linear-gradient(180deg, #ffffff 0%, var(--cream) 100%);
+      border-top: 1px solid rgba(241, 90, 37, 0.10);
+    }
+
+    .store-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .store-card {
+      background: #fff;
+      border-radius: 22px;
+      padding: 24px 20px;
+      border: 2px solid rgba(241, 90, 37, 0.12);
+      box-shadow: 0 12px 28px rgba(88, 46, 16, 0.09);
+      transition: 0.22s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .store-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 6px;
+      background: var(--main);
+    }
+
+    .store-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 38px rgba(88, 46, 16, 0.14);
+    }
+
+    .store-card .store-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 28px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: var(--yellow);
+      color: var(--main-dark);
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .store-card h3 {
+      color: var(--brown);
+      font-size: 22px;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .store-card p {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .store-card .store-link-text {
+      color: var(--main);
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+
+    .mascot-area {
+      background: var(--brown);
+      color: #fff;
+    }
+
+    .mascot-inner {
+      width: min(900px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 58px 0;
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .mascot-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: contain;
+      background: #fff;
+      padding: 12px;
+      box-shadow: 0 18px 34px rgba(0, 0, 0, 0.26);
+    }
+
+    .mascot-area h2 {
+      color: var(--yellow);
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    .mascot-area p {
+      color: #fff5e8;
+      font-weight: 800;
+    }
+
+    .info {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .info-row {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .info-row strong {
+      display: block;
+      color: var(--main);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      margin-bottom: 4px;
+    }
+
+    .info-row span,
+    .info-row a {
+      font-weight: 800;
+      color: var(--brown);
+    }
+
+    .map-box {
+      min-height: 380px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 7px solid #fff;
+      background: #fff;
+    }
+
+    .map-box iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 380px;
+      border: 0;
+      display: block;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, var(--main), var(--sub));
+      color: #fff;
+      text-align: center;
+      padding: 64px 20px;
+    }
+
+    .cta h2 {
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      font-weight: 800;
+      margin-bottom: 24px;
+    }
+
+    .cta .tel {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 58px;
+      padding: 0 30px;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--main);
+      font-size: 24px;
+      font-weight: 900;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
+    }
+
+    .site-footer {
+      background: #21140c;
+      color: rgba(255, 255, 255, 0.72);
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .site-footer strong {
+      display: block;
+      color: #fff2a8;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    @media (max-width: 960px) {
+      .nav {
+        display: none;
+      }
+
+      .hero-inner,
+      .takeout-head,
+      .poster-wrap,
+      .info,
+      .mascot-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .poster-text,
+      .photo-panel {
+        max-width: 560px;
+        justify-self: center;
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+
+      .hero-photo {
+        transform: none;
+      }
+
+      .hero-photo img {
+        height: 380px;
+      }
+
+      .hero-chip {
+        left: 14px;
+        bottom: 14px;
+      }
+
+      .menu-grid,
+      .first-guide {
+        grid-template-columns: 1fr;
+      }
+
+      .store-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .takeout-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .mascot-img {
+        justify-self: center;
+      }
+
+      .mascot-area {
+        text-align: center;
+      }
+    }
+
+    @media (min-width: 561px) and (max-width: 960px) {
+      .poster-wrap {
+        grid-template-columns: minmax(0, 1fr) minmax(220px, 0.48fr);
+        gap: 22px;
+      }
+
+      .poster-text,
+      .photo-panel {
+        max-width: none;
+      }
+
+      .poster-text {
+        padding: 24px;
+      }
+
+      .menu-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 18px;
+      }
+
+      .menu-list li {
+        font-size: 13px;
+        gap: 8px;
+        padding: 8px 0;
+      }
+
+      .notice {
+        font-size: 12px;
+        padding: 10px 12px;
+      }
+    }
+    @media (max-width: 560px) {
+      .header-inner,
+      .hero-inner,
+      .section,
+      .takeout-wrap,
+      .mascot-inner {
+        width: min(100% - 22px, 1120px);
+      }
+
+      .site-header {
+        position: static;
+      }
+
+      .logo {
+        font-size: 14px;
+      }
+
+      .logo-mark {
+        width: 40px;
+        height: 40px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero-photo img {
+        height: 300px;
+      }
+
+      .btn,
+      .cta .tel {
+        width: 100%;
+      }
+
+      .takeout-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .store-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .takeout-message,
+      .poster-text,
+      .info-card {
+        padding: 24px;
+      }
+
+      .photo-panel {
+        max-width: 100%;
+      }
+
+      .nobr {
+        white-space: normal;
+      }
+
+      .menu-list {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-list li {
+        align-items: flex-start;
+        font-size: 14px;
+      }
+}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#top" class="logo">
+        <span class="logo-mark">食</span>
+        <span>
+          お食事処 サンマール
+          <small>KADOGAWA</small>
+        </span>
+      </a>
+
+      <nav class="nav">
+        <a href="#menu">人気メニュー</a>
+        <a href="#takeout">お持ち帰り</a>
+        <a href="#poster">メニュー表</a>
+        <a href="#access">店舗情報</a>
+        <a href="#stores">他店舗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <div class="badge">あんかけ焼きそば・定食・お持ち帰り</div>
+          <h1>お腹いっぱい<br><span>食べたい時に</span></h1>
+          <p class="lead">
+            チャンポン、あんかけ焼きそば、チキン南蛮定食など、
+            昼ごはんにも夕方の食事にもぴったりなメニューをご用意しています。
+            お持ち帰りもできます。
+          </p>
+
+
+          <div class="entry-note">
+            西の丸門川店との併設ですが、お食事のみのご利用も歓迎しています。<br>
+            はじめての方も、どうぞ安心してお入りください。
+          </div>
+          <div class="hero-actions">
+            <a href="#menu" class="btn btn-main">人気メニューを見る</a>
+            <a href="#takeout" class="btn btn-sub">お持ち帰りを見る</a>
+          </div>
+
+          <ul class="hero-points">
+            <li>11:00〜18:00</li><li>ラストオーダー30分前</li>
+            <li>お持ち帰りOK</li>
+            <li>満足できる一品</li>
+          </ul>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-photo">
+            <img src="images/131204_440.jpg" alt="チキン南蛮定食" />
+          </div>
+          <div class="hero-chip">しっかり満足<br>できたてごはん</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="menu">
+      <div class="section-title">
+        <span class="en">POPULAR MENU</span>
+        <h2>人気メニュー</h2>
+      </div>
+
+      <div class="menu-grid">
+        <article class="menu-card">
+          <div class="menu-photo">
+            <img src="images/131204_440.jpg" alt="あんかけ焼きそば" />
+            <span class="menu-tag">名物</span>
+          </div>
+          <div class="menu-card-body">
+            <h3>あんかけ焼きそば</h3>
+            <p>とろっとしたあんが麺にからむ、持ち帰りにも人気の一品。</p>
+            <div class="price">1,000円 <span class="price-note">大盛り+100円</span></div>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-photo">
+            <img src="images/131204_396.jpg" alt="チキン南蛮定食" />
+            <span class="menu-tag">定番</span>
+          </div>
+          <div class="menu-card-body">
+            <h3>チキン南蛮定食</h3>
+            <p>ご飯・みそ汁付き。しっかり食べたい日におすすめ。</p>
+            <div class="price">1,100円</div>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-photo">
+            <img src="images/131204_443.jpg" alt="チャンポン" />
+            <span class="menu-tag">人気</span>
+          </div>
+          <div class="menu-card-body">
+            <h3>チャンポン</h3>
+            <p>野菜たっぷり、食べごたえのある人気メニュー。</p>
+            <div class="price">950円 <span class="price-note">ミドル750円</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="takeout-section" id="takeout">
+      <div class="takeout-wrap">
+        <div class="takeout-head">
+          <div class="takeout-message">
+            <div class="en">TAKE OUT</div>
+            <h2><span class="nobr">夕食のおかずに</span><br><span class="nobr">お持ち帰りできます。</span></h2>
+            <p>あんかけ焼きそば、チキン南蛮、お弁当など、できたてのおいしさをご家庭でもどうぞ。</p>
+          </div>
+
+          <div class="takeout-menu-panel">
+            <h3 class="takeout-menu-title">お持ち帰りメニュー</h3>
+            <div class="takeout-grid">
+              <article class="takeout-card">
+                <img src="images/131204_440.jpg" alt="あんかけ焼きそば" />
+                <div class="takeout-card-body">あんかけ焼きそば<span>1,000円</span></div>
+              </article>
+              <article class="takeout-card">
+                <img src="images/131204_396.jpg" alt="チキン南蛮" />
+                <div class="takeout-card-body">チキン南蛮<span>1,000円</span></div>
+              </article>
+              <article class="takeout-card">
+                <img src="images/IMG_4822.JPG" alt="お弁当" />
+                <div class="takeout-card-body">お弁当<span>1,000円</span></div>
+              </article>
+              <article class="takeout-card">
+                <img src="images/弁当箱.jpg" alt="お持ち帰り容器" />
+                <div class="takeout-card-body">容器代<span>50円</span></div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mascot-area">
+      <div class="mascot-inner">
+        <img class="mascot-img" src="images/あんかけくん2021.jpg" alt="あんかけくん" />
+        <div>
+          <h2>あんかけくんも<br>お待ちしています！</h2>
+          <p>
+            お昼ごはん、夕方の食事、お持ち帰りに。
+            門川でしっかり食べたい時は、サンマールへどうぞ。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="poster">
+      <div class="section-title">
+        <span class="en">MENU POSTER</span>
+        <h2>メニュー表</h2>
+      </div>
+
+      <div class="poster-wrap">
+        <div class="poster-text">
+          <h3>主なメニュー</h3>
+          <ul class="menu-list">
+            <li><span>チャンポン</span><span>950円</span></li>
+            <li><span>ミドルチャンポン</span><span>750円</span></li>
+            <li><span>あんかけ焼きそば</span><span>1,000円</span></li>
+            <li><span>麺・大盛り</span><span>+100円</span></li>
+            <li><span>チ</span><span>キ</span></li>
+            <li><span>1</span><span>,</span></li>
+            <li><span>カレーライス</span><span>780円</span></li>
+            <li><span>かけうどん・そば</span><span>600円</span></li>
+            <li><span>日替り定食</span><span>780円</span></li>
+            <li><span>うどん＆南蛮セット</span><span>1,000円</span></li>
+            <li><span>アジフライ定食</span><span>1,300円</span></li>
+            <li><span>アジフライ＆南蛮定食</span><span>1,300円</span></li>
+            <li><span>ご飯</span><span>200円</span></li>
+            <li><span>ご飯・大盛り</span><span>+100円</span></li>
+            <li><span>みそ汁</span><span>100円</span></li>
+            <li><span>生卵</span><span>50円</span></li>
+          </ul>
+          <div class="notice">一部を除いて保存料・合成着色料は使用しておりません。</div>
+        </div>
+
+        <div class="photo-panel">
+          <img src="images/20250629.jpg" alt="お食事処サンマール門川のメニュー表" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="access">
+      <div class="section-title">
+        <span class="en">SHOP INFO</span>
+        <h2>店舗情報</h2>
+        <p>営業時間・住所・アクセスはこちらです。</p>
+      </div>
+
+      <div class="info">
+        <div class="info-card">
+          <h3>お食事処 サンマール 門川</h3>
+          <div class="info-row"><strong>住所</strong><span>〒889-0612 宮崎県東臼杵郡門川町中須3-5-2</span></div>
+          <div class="info-row"><strong>営業時間</strong><span>11:00〜18:00（ラストオーダー17:30）</span></div>
+          <div class="info-row"><strong>定休日</strong><span>西の丸門川店がお休みの日は、<br>サンマールもお休みです</span></div>
+          <div class="info-row"><strong>駐車場</strong><span>西の丸門川店の駐車場をお使いください</span></div>
+          <div style="margin-top: 24px;">
+          </div>
+        </div>
+
+        <div class="map-box">
+          <iframe src="https://www.google.com/maps?q=%E3%81%8A%E9%A3%9F%E4%BA%8B%E5%87%A6%20%E3%82%B5%E3%83%B3%E3%83%9E%E3%83%BC%E3%83%AB%20%E9%96%80%E5%B7%9D%20%E5%AE%AE%E5%B4%8E%E7%9C%8C%E6%9D%B1%E8%87%BC%E6%9D%B5%E9%83%A1%E9%96%80%E5%B7%9D%E7%94%BA%E4%B8%AD%E9%A0%883-5-2&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="stores-section" id="stores">
+      <div class="section">
+        <div class="section-title">
+          <span class="en">OTHER STORES</span>
+          <h2>サンマールグループ店</h2>
+          <p>お近くにお越しの際はどうぞお立ち寄りください</p>
+        </div>
+
+        <div class="store-grid">
+          <a class="store-card" href="nobeoka.html" aria-label="サンマール延岡の店舗ページ"><span class="store-label">店舗ページ</span><h3>サンマール延岡</h3><p>店舗ページをご覧いただけます。</p><span class="store-link-text">詳しく見る</span></a>
+
+          <a class="store-card" href="center.html" aria-label="サンマールセンターの店舗ページ"><span class="store-label">店舗ページ</span><h3>サンマールセンター</h3><p>店舗ページをご覧いただけます。</p><span class="store-link-text">詳しく見る</span></a>
+
+          <a class="store-card" href="furukawa.html" aria-label="サンマール古川の店舗ページ"><span class="store-label">店舗ページ</span><h3>サンマール古川</h3><p>店舗ページをご覧いただけます。</p><span class="store-link-text">詳しく見る</span></a>
+
+          <a class="store-card" href="ebisu.html" aria-label="サンマール恵比須の店舗ページ"><span class="store-label">店舗ページ</span><h3>サンマール恵比須</h3><p>店舗ページをご覧いただけます。</p><span class="store-link-text">詳しく見る</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>ご来店・お持ち帰りを<br>お待ちしています</h2>
+      <p>お昼ごはんにも、夕食のおかずにも。お食事のみのご利用も歓迎していますので、安心してお立ち寄りください。</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <strong>お食事処 サンマール 門川</strong>
+    © Sanmaru Kadogawa. All Rights Reserved.
+  </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
