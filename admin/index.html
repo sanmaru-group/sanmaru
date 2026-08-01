@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>サンマールHP管理アプリ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">SANMARU HP MANAGER</p>
+      <h1>サンマールHP管理アプリ</h1>
+    </div>
+    <div class="status" id="status">読み込み中</div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <h2>店舗</h2>
+      <div id="storeButtons" class="store-buttons"></div>
+      <div class="note">
+        <strong>更新の流れ</strong>
+        <p>保存するとPC内のHTMLを更新します。公開HPへ反映する時は、下のボタンでGitHubへ反映します。</p>
+      </div>
+      <div class="publish-box">
+        <h2>公開</h2>
+        <label>記録メモ<input id="commitMessage" type="text" placeholder="例：メニュー価格を更新"></label>
+        <button class="secondary" id="checkChangesButton" type="button">変更確認</button>
+        <button id="publishButton" type="button">GitHubへ反映</button>
+        <div id="gitStatus" class="git-status">未確認</div>
+      </div>
+    </aside>
+
+    <section class="editor">
+      <div class="toolbar">
+        <div>
+          <p class="eyebrow">EDITING</p>
+          <h2 id="editingTitle">店舗を選択してください</h2>
+        </div>
+        <div class="actions">
+          <button class="secondary" id="reloadButton" type="button">再読み込み</button>
+          <button id="saveButton" type="button">保存</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>店舗情報</h3>
+        <label>店舗名<input id="storeName" type="text"></label>
+        <label>併設店舗の案内<textarea id="entryNote" rows="3"></textarea></label>
+        <div class="table-head">
+          <h4>上部タグ</h4>
+          <button class="small" data-add="heroPoints" type="button">追加</button>
+        </div>
+        <div id="heroPoints" class="simple-list"></div>
+      </div>
+
+      <div class="panel">
+        <div class="table-head">
+          <h3>店舗情報欄</h3>
+          <button class="small" data-add="infoRows" type="button">行を追加</button>
+        </div>
+        <div id="infoRows" class="rows"></div>
+        <label>Googleマップ埋め込みURL<input id="mapSrc" type="text"></label>
+      </div>
+
+      <div class="panel">
+        <div class="table-head">
+          <h3>人気メニュー</h3>
+          <button class="small" data-add="popularMenus" type="button">メニューを追加</button>
+        </div>
+        <div id="popularMenus" class="cards-editor"></div>
+      </div>
+
+      <div class="panel">
+        <div class="table-head">
+          <h3>メニュー表</h3>
+          <button class="small" data-add="mainMenus" type="button">行を追加</button>
+        </div>
+        <div class="image-row">
+          <label>メニュー表画像<select id="posterImage"></select></label>
+          <label>画像説明<input id="posterAlt" type="text"></label>
+        </div>
+        <label class="upload-box">画像を追加
+          <input id="imageUpload" type="file" accept="image/*">
+        </label>
+        <div id="mainMenus" class="rows"></div>
+      </div>
+    </section>
+
+    <aside class="preview">
+      <div class="preview-head">
+        <h2>プレビュー</h2>
+        <a id="openPreview" href="#" target="_blank" rel="noopener">別画面で開く</a>
+      </div>
+      <iframe id="previewFrame" title="店舗ページプレビュー"></iframe>
+    </aside>
+  </main>
+
+  <template id="rowTemplate">
+    <div class="row-item">
+      <input data-field="name" type="text" placeholder="項目名">
+      <input data-field="price" type="text" placeholder="価格・内容">
+      <button class="danger" data-remove type="button">削除</button>
+    </div>
+  </template>
+
+  <template id="infoTemplate">
+    <div class="row-item info-row-editor">
+      <input data-field="label" type="text" placeholder="項目名">
+      <textarea data-field="value" rows="2" placeholder="内容"></textarea>
+      <button class="danger" data-remove type="button">削除</button>
+    </div>
+  </template>
+
+  <template id="popularTemplate">
+    <div class="popular-item">
+      <div class="image-row">
+        <label>画像<select data-field="image"></select></label>
+        <label>タグ<input data-field="tag" type="text"></label>
+      </div>
+      <div class="image-row">
+        <label>メニュー名<input data-field="name" type="text"></label>
+        <label>画像説明<input data-field="alt" type="text"></label>
+      </div>
+      <label>説明<textarea data-field="description" rows="2"></textarea></label>
+      <div class="image-row">
+        <label>価格<input data-field="priceMain" type="text"></label>
+        <label>価格補足<input data-field="priceNote" type="text"></label>
+      </div>
+      <button class="danger" data-remove type="button">この人気メニューを削除</button>
+    </div>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
