@@ -1,0 +1,40 @@
+name: GA4 additional reports (manual)
+on:
+  workflow_dispatch:
+    inputs:
+      save_to_sheets:
+        description: 'Save additional GA4 reports into separate Sheets tabs'
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  additional-ga4:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Authenticate Google Cloud via OIDC
+        uses: google-github-actions/auth@v3
+        with:
+          workload_identity_provider: projects/499034577424/locations/global/workloadIdentityPools/sanmaru-github/providers/github
+          service_account: sanmaru-ga4-reader@sanmaru-analytics.iam.gserviceaccount.com
+      - name: Install dependencies
+        run: pip install -r requirements-ga4.txt
+      - name: Retrieve extra GA4 reports
+        env:
+          GA4_PROPERTY_ID: '559934517'
+          SPREADSHEET_ID: '1wo77doBqWRfGlqh9JovH576BJq6eGfOc0PjTvKqJ-iw'
+          SAVE_TO_SHEETS: ${{ inputs.save_to_sheets }}
+        run: |
+          if [ "$SAVE_TO_SHEETS" = 'true' ]; then
+            python scripts/fetch_ga4_extra.py --write
+          else
+            python scripts/fetch_ga4_extra.py
+          fi
