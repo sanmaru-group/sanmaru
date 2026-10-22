@@ -1,27 +1,40 @@
-name: GA4 retrieval test
+name: GA4 to Sheets
 on:
   workflow_dispatch:
+    inputs:
+      save_to_sheets:
+        description: 'Save retrieved data into Google Sheets (false = read-only test)'
+        type: boolean
+        required: true
+        default: false
 
 permissions:
   contents: read
   id-token: write
 
 jobs:
-  test-ga4:
-    runs-on: ubuntu-latest
+  fetch-ga4:
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Authenticate to Google Cloud (OIDC)
+      - name: Authenticate Google Cloud using GitHub OIDC
         uses: google-github-actions/auth@v3
         with:
           workload_identity_provider: projects/499034577424/locations/global/workloadIdentityPools/sanmaru-github/providers/github
           service_account: sanmaru-ga4-reader@sanmaru-analytics.iam.gserviceaccount.com
       - name: Install dependencies
         run: pip install -r requirements-ga4.txt
-      - name: Test GA4 data retrieval
+      - name: GA4 retrieval and optional Sheets upsert
         env:
           GA4_PROPERTY_ID: '559934517'
-        run: python scripts/fetch_ga4.py
+          SPREADSHEET_ID: '1wo77doBqWRfGlqh9JovH576BJq6eGfOc0PjTvKqJ-iw'
+          SAVE_TO_SHEETS: ${{ inputs.save_to_sheets }}
+        run: |
+          if [ "$SAVE_TO_SHEETS" = 'true' ]; then
+            python scripts/fetch_ga4.py --write
+          else
+            python scripts/fetch_ga4.py
+          fi
